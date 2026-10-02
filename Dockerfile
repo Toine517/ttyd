@@ -1,7 +1,7 @@
 FROM tsl0922/ttyd:latest
 USER root
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends iperf3 && \
+    apt-get install -y --no-install-recommends iperf3 net-tools && \
     rm -rf /var/lib/apt/lists/*
 EXPOSE 8080 7681 5201
 ENV PORT=8080
