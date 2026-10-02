@@ -1,5 +1,9 @@
-FROM tsl0922/ttyd:latest
-EXPOSE 8080
-ENV PORT=8080
-ENV CC_REVERSE_PROXY_BUFFERING=FALSE
-CMD ["sh", "-c", "ttyd -t pingInterval=30 -p $PORT -c admin:secretpassword bash", "-i"]
+FROM ubuntu:latest
+RUN apt-get update && apt-get install -y \
+    curl \
+    htop \
+    iputils-ping \
+    net-tools \
+    vim \
+    && rm -rf /var/lib/apt/lists/*
+CMD ["tail", "-f", "/dev/null"]
